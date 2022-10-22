@@ -1,0 +1,196 @@
+﻿<Window x:Class="ZinNotes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+
+        xmlns:local="clr-namespace:ZinNotes"
+        mc:Ignorable="d"
+        Title="ZinNotes" 
+        Height="700" 
+        WindowStartupLocation="CenterScreen"
+        Width="1200" 
+        HorizontalAlignment="Center" 
+        VerticalAlignment="Center" 
+        WindowStyle="ThreeDBorderWindow"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:system="clr-namespace:System;assembly=netstandard" Loaded="Window_Loaded">
+
+    <!--<Grid>
+        
+        -->
+    <!--<DataGrid x:Name="datagridZinNotes" FontSize="16" FontWeight="Bold" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Categories" Width="200"></DataGridTextColumn>
+                <DataGridTextColumn Header="Notes" Width="200"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Done" Width="80"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Content (info)" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>-->
+    <!--
+
+    </Grid>-->
+    <Grid HorizontalAlignment="Left" Width="1200">
+
+        <Grid Background="#FFF0F0F0" Margin="12">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="150"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+            <GridSplitter Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Width="5"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Stretch" 
+                          Background="White"
+                          ShowsPreview="False" ></GridSplitter>
+
+            <GridSplitter Grid.Column="3" Grid.Row="0" Grid.RowSpan="3" Width="5"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Stretch" 
+                          Background="White"
+                          ShowsPreview="False"></GridSplitter>
+
+            <GridSplitter Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Height="5"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Center" 
+                          Background="White"
+                          ShowsPreview="False"></GridSplitter>
+
+            <!--<Border Background="AliceBlue" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                <Button Content="12323" HorizontalAlignment="Center" VerticalAlignment="Center"></Button>
+            </Border>
+            -->
+            <!--<Border Background="Aquamarine" Grid.Column="1" Grid.Row="0"></Border>-->
+            <!--
+            <Border Background="LightPink"  Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"></Border>
+            <Border Background="Coral"  Grid.Column="0" Grid.Row="1"></Border>
+            <Border Background="LawnGreen"  Grid.Column="1" Grid.Row="1"></Border>
+            -->
+            <!--<Border Background="LightSkyBlue"  Grid.Column="2" Grid.Row="1"></Border>-->
+
+            <Border Grid.Column="0" Grid.Row="0" BorderThickness="1" CornerRadius="5" Background="White" BorderBrush="LightGray">
+                <TextBlock
+                    Text="Category"
+                    Margin="10"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontSize="16"
+                    FontStyle="Italic"
+                    ></TextBlock>
+            </Border>
+            <Border Grid.Column="2" Grid.Row="0"  BorderThickness="1" CornerRadius="5" Background="White"  BorderBrush="LightGray">
+                <TextBlock
+                    Text="Note"
+                    Margin="10"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontSize="16"
+                    FontStyle="Italic"
+                    ></TextBlock>
+            </Border>
+            <Border  Grid.Column="4" Grid.Row="0" BorderThickness="1" CornerRadius="5" Background="White"  BorderBrush="LightGray">
+                <TextBlock
+                    Text="Details"
+                    Margin="10"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontSize="16"
+                    FontStyle="Italic"
+                    ></TextBlock>
+            </Border>
+
+            <Border  Grid.Column="0" Grid.Row="2" BorderThickness="1" CornerRadius="5" Background="White"  BorderBrush="LightGray">
+                <StackPanel Orientation="Vertical">
+                    <Button Content="First" Margin="2"></Button>
+                    <Button Content="Second" Margin="2"></Button>
+                    <Button Content="Third" Margin="2"></Button>
+                    <TextBox Text="Some text"></TextBox>
+
+                    <TextBlock Text="00000" Margin="2" TextAlignment="Center"></TextBlock>
+                </StackPanel>
+            </Border>
+            <Border  Grid.Column="2" Grid.Row="2" BorderThickness="1" CornerRadius="5" Background="White" BorderBrush="LightGray"
+                     
+                     
+                     >
+                <ListBox d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            </Border>
+            <Border  Grid.Column="4" Grid.Row="2" BorderThickness="1" CornerRadius="5" Background="White"  BorderBrush="LightGray">
+                <Border CornerRadius="5" 
+                        BorderThickness="0"
+                        BorderBrush="LightGray" VerticalAlignment="Center" Margin="10,0,10,0" Height="574">
+
+                    <!--<StackPanel Orientation="Horizontal">
+                        <Button Content="First" VerticalAlignment="Center" Margin="2" Style="{DynamicResource MaterialDesignRaisedSecondaryButton}"></Button>
+                        <Button Content="Second" VerticalAlignment="Center" Margin="2"></Button>
+                        <Button Content="Third" VerticalAlignment="Center" Margin="2"></Button>
+                        <TextBlock Text="00000" VerticalAlignment="Center" Margin="2"></TextBlock>
+                    </StackPanel>-->
+
+                    <!--<CheckBox Checked="CheckBox_Checked"
+                              BorderThickness="2"
+                              BorderBrush="BlanchedAlmond"
+                              Height="143"
+                              MaxHeight="170"
+                              VerticalAlignment="Top"
+                              Margin="7,7,7,0">
+                        <TextBox TextWrapping="Wrap" 
+                                 Text="Visual Studio is a 32-bit application and the WPF designer has to load referenced assemblies (you see that behavior all of the time when you use user controls, where you have to rebuild to get the designer to update). Windows does not support a sharing between 32-bit and 64-bit - you have to have either a 32 bit app or a 64-bit app, period, no sharing."
+                                 TextAlignment="Center"
+                                 MaxHeight="80"
+                                 BorderThickness="2"
+                                 
+                              BorderBrush="BlanchedAlmond"
+                                   MinHeight="100"
+                                   Width="683"/>
+                    </CheckBox>-->
+
+                    <StackPanel Orientation="Vertical">
+                        <Button Content="First" Margin="2"></Button>
+                        <Button Content="Second" Margin="2"></Button>
+                        <Button Content="Third" Margin="2"></Button>
+                        <TextBox 
+                            x:Name="DetailsTextbox1"
+                            Text="{Binding Text, ElementName=DetailsTextInput}"
+                            TextWrapping="Wrap" FontSize="14"
+                            ></TextBox>
+
+                        <TextBox x:Name="textBox" Text="Input note in this row" Cursor="None"
+                                 
+                                 />
+                        <TextBox Text="Some text"></TextBox>
+
+                        <CheckBox>
+                            <TextBox 
+                                x:Name="DetailsTextInput"
+                                Text="sergsergser"/>
+
+                        </CheckBox>
+
+                        <TextBlock Text="00000" Margin="2" TextAlignment="Center"></TextBlock>
+                    </StackPanel>
+
+
+
+
+
+
+
+
+                </Border>
+            </Border>
+        </Grid>
+    </Grid>
+
+</Window>
