@@ -79,7 +79,7 @@
             -->
             <!--<Border Background="LightSkyBlue"  Grid.Column="2" Grid.Row="1"></Border>-->
 
-            <Border Grid.Column="0" Grid.Row="0" BorderThickness="1" CornerRadius="5" Background="White" BorderBrush="LightGray">
+            <Border Grid.Column="0" Grid.Row="0" BorderThickness="1" CornerRadius="5" Background="#FFD4CECE" BorderBrush="LightGray">
                 <TextBlock
                     Text="Category"
                     Margin="10"
@@ -89,7 +89,7 @@
                     FontStyle="Italic"
                     ></TextBlock>
             </Border>
-            <Border Grid.Column="2" Grid.Row="0"  BorderThickness="1" CornerRadius="5" Background="White"  BorderBrush="LightGray">
+            <Border Grid.Column="2" Grid.Row="0"  BorderThickness="1" CornerRadius="5" Background="#FFD4CECE"  BorderBrush="LightGray">
                 <TextBlock
                     Text="Note"
                     Margin="10"
@@ -110,21 +110,29 @@
                     ></TextBlock>
             </Border>
 
-            <Border  Grid.Column="0" Grid.Row="2" BorderThickness="1" CornerRadius="5" Background="White"  BorderBrush="LightGray">
-                <StackPanel Orientation="Vertical">
+                <Border  Grid.Column="0" Grid.Row="2" BorderThickness="1" CornerRadius="5" Background="White"  BorderBrush="LightGray" >
+                <!--<StackPanel Orientation="Vertical">
                     <Button Content="First" Margin="2"></Button>
-                    <Button Content="Second" Margin="2"></Button>
+                    <Button Content="Second" Margin="2" Click="Button_Click"></Button>
                     <Button Content="Third" Margin="2"></Button>
                     <TextBox Text="Some text"></TextBox>
 
                     <TextBlock Text="00000" Margin="2" TextAlignment="Center"></TextBlock>
-                </StackPanel>
+                </StackPanel>-->
+
+                <ListBox
+                    x:Name="UiCategories" Background="#FF94EB5E" SelectionChanged="Categories_SelectionChanged"
+                    
+                ></ListBox>
             </Border>
-            <Border  Grid.Column="2" Grid.Row="2" BorderThickness="1" CornerRadius="5" Background="White" BorderBrush="LightGray"
-                     
-                     
-                     >
-                <ListBox d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <Border  Grid.Column="2" Grid.Row="2" BorderThickness="1" CornerRadius="5" Background="White" BorderBrush="LightGray">
+
+                <ListBox Background="#FFF3E039"
+                    x:Name="UiNotes" SelectionChanged="UiNotes_SelectionChanged"
+                ></ListBox>
+
+
+
             </Border>
             <Border  Grid.Column="4" Grid.Row="2" BorderThickness="1" CornerRadius="5" Background="White"  BorderBrush="LightGray">
                 <Border CornerRadius="5" 
@@ -156,8 +164,8 @@
                                    Width="683"/>
                     </CheckBox>-->
 
-                    <StackPanel Orientation="Vertical">
-                        <Button Content="First" Margin="2"></Button>
+                    <!--<StackPanel x:Name="UiTestStack" Orientation="Vertical">
+                        <Button x:Name="UiFirstButton" Content="First" Margin="2"></Button>
                         <Button Content="Second" Margin="2"></Button>
                         <Button Content="Third" Margin="2"></Button>
                         <TextBox 
@@ -179,9 +187,11 @@
                         </CheckBox>
 
                         <TextBlock Text="00000" Margin="2" TextAlignment="Center"></TextBlock>
-                    </StackPanel>
+                    </StackPanel>-->
 
-
+                    <ListBox
+                        x:Name="UiDetails"
+                        ></ListBox>
 
 
 
